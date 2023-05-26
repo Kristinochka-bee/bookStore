@@ -12,7 +12,8 @@ public class TestBase {
     @BeforeMethod
     public void setUp(){
         Configuration.browserCapabilities = new ChromeOptions().addArguments("-remote-allow-origins=*"); //чтоб открывался браузер
-        open("https://demoqa.com/books"); //открывает нужную страничку
+        open("https://demoqa.com/login"); //открывает нужную страничку
+
     }
 
 

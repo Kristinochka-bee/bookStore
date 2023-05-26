@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
+
 public class LoginPage {
 
     private SelenideElement loginInBookStoreText = $x("//h5[normalize-space()='Login in Book Store']");
@@ -15,6 +16,12 @@ public class LoginPage {
     public void login (String userName, String passwordUser){
         userNameField.sendKeys(userName);
         passwordField.sendKeys(passwordUser);
+        loginButton.click();
+    }
+
+    public void loginToBookStore() {
+        userNameField.sendKeys("admin");
+        passwordField.sendKeys("Qwerty@12345");
         loginButton.click();
     }
 

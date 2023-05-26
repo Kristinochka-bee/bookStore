@@ -1,6 +1,8 @@
 package tests.registration;
 
 import api.RegistrationApi;
+import com.codeborne.selenide.Condition;
+import e2e.pages.HomePage;
 import e2e.pages.LoginPage;
 import e2e.pages.ProfilePage;
 import io.restassured.response.Response;
@@ -9,8 +11,10 @@ import tests.TestBase;
 
 public class RegistrationNewUserTest extends TestBase {
     RegistrationApi registrationApi;
-    ProfilePage profilePage;
     LoginPage loginPage;
+    ProfilePage profilePage;
+
+
 
     @Test
     public void registerNewUserViaApiAndLoginViaUITest(){
@@ -22,6 +26,10 @@ public class RegistrationNewUserTest extends TestBase {
 
         loginPage = new LoginPage();
         loginPage.login(userName,password);
+
+        profilePage = new ProfilePage();
+        profilePage.getUserNameTitle().shouldHave(Condition.text(userName));
+
 
     }
 }

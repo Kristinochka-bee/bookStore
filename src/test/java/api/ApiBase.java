@@ -7,7 +7,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class ApiBase {
-    final String BASE_URI = "https://demoqa.com/swagger/";
+    final String BASE_URI = "https://demoqa.com";
     final String API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlJvbiIsInBhc3N3b3JkIjoieUEqVWVldUEycFUzIiwiaWF0IjoxNjgzNTQ0NzU1fQ.cqe_0p_7qCW_aSi7ilRRL5IVmVMf_YAK_vRVBmOVosc";
     RequestSpecification spec = new RequestSpecBuilder()
             .setBaseUri(BASE_URI)

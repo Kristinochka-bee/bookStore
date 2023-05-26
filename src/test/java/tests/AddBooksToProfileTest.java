@@ -2,14 +2,10 @@ package tests;
 
 import com.codeborne.selenide.Condition;
 import e2e.pages.*;
-import io.qameta.allure.Step;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.util.List;
 
 public class AddBooksToProfileTest extends TestBase {
     ProfilePage profilePage;
@@ -17,10 +13,9 @@ public class AddBooksToProfileTest extends TestBase {
     BookCard bookCard;
     LoginPage loginPage;
     LeftMenu leftMenu;
-
     BookPage bookPage;
+    String bookTitle;
 
-    String cardBookTitle;
 
 
     @BeforeMethod
@@ -31,7 +26,6 @@ public class AddBooksToProfileTest extends TestBase {
 
     @Test
     public void addBooksToProfile()  {
-
         leftMenu = new LeftMenu();
         leftMenu.clickOnbookStoreMenuButton();
 
@@ -39,6 +33,7 @@ public class AddBooksToProfileTest extends TestBase {
         homePage.getSearchBoxField().shouldBe(Condition.visible);
         bookCard = new BookCard();
 
+        bookTitle = bookCard.getRandomBook().text(); //вытягиваем текст книги в переменную, но она отличается от названия где мы кликаем по названию книги
         bookCard.getRandomBook().click();
         bookPage = new BookPage();
         bookPage.getAddToYourCollectionButton().shouldBe(Condition.visible);
@@ -46,10 +41,27 @@ public class AddBooksToProfileTest extends TestBase {
         bookPage.getAddToYourCollectionButton().click();
 
         String expectAlertText = "Book added to your collection.";
-        String expectedAlertText2 = "Book already present in the your collection!";
         String actualAlertText = bookPage.getAlertText();
         Assert.assertTrue(actualAlertText.contains(expectAlertText));
         bookPage.clickAlertOkButton();
+
+        leftMenu.getProfileMenuButton().click();
+
+        profilePage = new ProfilePage();
+        profilePage.getSearchBox().sendKeys(bookTitle);
+        profilePage.getTableRows().shouldHave(Condition.text(bookTitle));
+        profilePage.getDeleteAllBooksButton().click();
+        profilePage.clickAlertOkButton();
+        profilePage.clickAlertOkButton();
+
+        /*
+        String expectedAlertTexts = "Book deleted.";
+        String actualAlertTextss = profilePage.getAlertText();
+        Assert.assertTrue(actualAlertTextss.contains(expectedAlertTexts));
+        profilePage.clickAlertOkButton();
+
+         */
+
 
     }
 

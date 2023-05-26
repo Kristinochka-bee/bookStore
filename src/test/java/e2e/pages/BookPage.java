@@ -11,6 +11,7 @@ public class BookPage extends LeftMenu{
     private SelenideElement addToYourCollectionButton = $x("//div[@class='text-right fullButton']//button[@id='addNewRecordButton']");
 
     private SelenideElement backToBookStoreButton = $x ("//button[@id='addNewRecordButton']");
+    private SelenideElement nameOfBook = $x ("//div[@id='title-wrapper']//label[@id='userName-value']");
 
 
 }

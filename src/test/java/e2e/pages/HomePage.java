@@ -22,6 +22,7 @@ public class HomePage {
     private SelenideElement searchButton = $x("//span[@id='basic-addon2']");
     private SelenideElement loginButton = $x("//button[@id='login']");
 
+    private SelenideElement logOutButton = $x("//button[@class=\"btn btn-primary\"]");
     private ElementsCollection booksTitles = $$x("//span[@class='mr-2']//a");
 
 

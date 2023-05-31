@@ -5,6 +5,9 @@ import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.switchTo;
@@ -27,6 +30,13 @@ public class LeftMenu {
 
     public String getAlertText() {
         return switchTo().alert().getText();
+    }
+
+    public void checkNotExistingOption(String expectedNameOption, WebElement selectElement) {
+        Select select = new Select(selectElement);
+        for (WebElement option : select.getOptions()) {
+            Assert.assertNotEquals(option.getText(), expectedNameOption);
+        }
     }
 
     public void clickAlertOkButton() {switchTo().alert().accept();}

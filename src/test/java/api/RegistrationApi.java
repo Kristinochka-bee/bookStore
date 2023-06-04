@@ -2,7 +2,8 @@ package api;
 
 import com.github.javafaker.Faker;
 import io.restassured.response.Response;
-import schema.RegistrationDTO;
+import api.schema.RegistrationDTO;
+import tests.api.ApiBase;
 
 public class RegistrationApi extends ApiBase {
 

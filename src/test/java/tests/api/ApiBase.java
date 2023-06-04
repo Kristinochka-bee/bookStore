@@ -57,7 +57,7 @@ public class ApiBase {
         return resp;
     }
 
-    public Response doGetRequest(String endPoint, Integer responseCode){
+    public Response doGetRequest(String endPoint, Integer responseCode, int id){
         Response resp = RestAssured.given()
                 .spec(spec)
                 .when()

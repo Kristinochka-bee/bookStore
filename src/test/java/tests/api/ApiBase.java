@@ -1,4 +1,4 @@
-package api;
+package tests.api;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -8,11 +8,13 @@ import io.restassured.specification.RequestSpecification;
 
 public class ApiBase {
     final String BASE_URI = "https://demoqa.com";
-    final String API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlJvbiIsInBhc3N3b3JkIjoieUEqVWVldUEycFUzIiwiaWF0IjoxNjgzNTQ0NzU1fQ.cqe_0p_7qCW_aSi7ilRRL5IVmVMf_YAK_vRVBmOVosc";
+   // final String API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlJvbiIsInBhc3N3b3JkIjoieUEqVWVldUEycFUzIiwiaWF0IjoxNjgzNTQ0NzU1fQ.cqe_0p_7qCW_aSi7ilRRL5IVmVMf_YAK_vRVBmOVosc";
+    protected final String GENERATE_TOKEN_END_POINT = "/Account/v1/GenerateToken";
+
     RequestSpecification spec = new RequestSpecBuilder()
             .setBaseUri(BASE_URI)
             .setContentType(ContentType.JSON)
-            .addHeader("Access-Token", API_KEY)
+            .addHeader("Access-Token", GENERATE_TOKEN_END_POINT)
             .build();
 
     public Response doPostRequest(String endPoint, Integer responseCode, Object body){

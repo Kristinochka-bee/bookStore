@@ -43,6 +43,7 @@ public class ApiBase {
         return resp;
     }
 
+
     public Response doGetRequestWithParam(String endPoint, Integer responseCode, int id){
         Response resp = RestAssured.given()
                 .spec(spec)

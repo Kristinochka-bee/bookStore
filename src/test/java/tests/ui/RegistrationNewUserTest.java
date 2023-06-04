@@ -1,4 +1,4 @@
-package tests.registration;
+package tests.ui;
 
 import api.RegistrationApi;
 import com.codeborne.selenide.Condition;

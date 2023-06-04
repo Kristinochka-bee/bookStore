@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class AddBooksToProfileTest extends TestBase {
     ProfilePage profilePage;
     HomePage homePage;
-    BookCard bookCard;
+    //BookCard bookCard;
     LoginPage loginPage;
     LeftMenu leftMenu;
     BookPage bookPage;
@@ -36,9 +36,9 @@ public class AddBooksToProfileTest extends TestBase {
         leftMenu.clickOnbookStoreMenuButton();
 
         homePage.getSearchBoxField().shouldBe(Condition.visible);
-        bookCard = new BookCard();
+        //bookCard = new BookCard();
 
-        SelenideElement randomBook = bookCard.getRandomBook();
+        SelenideElement randomBook = homePage.getRandomBook();
         bookTitle = randomBook.text();
         randomBook.click();
 

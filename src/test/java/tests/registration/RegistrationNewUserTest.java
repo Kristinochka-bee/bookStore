@@ -2,7 +2,6 @@ package tests.registration;
 
 import api.RegistrationApi;
 import com.codeborne.selenide.Condition;
-import e2e.pages.HomePage;
 import e2e.pages.LoginPage;
 import e2e.pages.ProfilePage;
 import io.restassured.response.Response;

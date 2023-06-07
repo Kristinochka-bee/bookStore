@@ -11,7 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import tests.TestBase;
 
-public class RegistrationAndDeleteUserTest extends TestBase {
+public class RegistrationAndDeleteAccountTest extends TestBase {
     RegistrationAndLoginApi registrationApi;
     LoginPage loginPage;
     ProfilePage profilePage;

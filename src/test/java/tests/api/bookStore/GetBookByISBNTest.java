@@ -1,4 +1,4 @@
-package tests.bookStore;
+package tests.api.bookStore;
 
 import api.enums.EndPoint;
 import io.restassured.response.Response;

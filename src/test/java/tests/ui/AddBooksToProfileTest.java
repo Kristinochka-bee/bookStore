@@ -104,17 +104,11 @@ public class AddBooksToProfileTest extends TestBase {
         leftMenu.getProfileMenuButton().click();
         profilePage = new ProfilePage();
         profilePage.getTableRow().shouldBe(Condition.visible);
-        // как сделать проверку на то, что книги отображаются в таблице
+        profilePage.getYouDontKnowJSBook().shouldBe(Condition.visible);// книги отображаются в таблице
+        profilePage.getSpeakingJavaScriptBook().shouldBe(Condition.visible);
+        profilePage.getSpeakingJavaScriptBook().isDisplayed();
         profilePage.getSearchBox().sendKeys("You Don't Know JS");
-        profilePage.checkExistingBook(1);
-
-        //как сделать проверку на то,что книга удалилась
-
-        //profilePage.getTableRow().selectOptionContainingText("You Don't Know JS" + "Kyle Simpson" + "O'Reilly Media" );
-        // profilePage.getTableRows().shouldBe(Condition.exactText("Speaking JavaScript"));
-        // profilePage.getTableRows().shouldBe(Condition.exactText("Eloquent JavaScript, Second Edition"));
-
-        //profilePage.getSearchBox().sendKeys("You Don't Know JS");
+        //profilePage.getTable().shouldHave(Condition.exactText("You Don't Know JS"));
         profilePage.getDeleteIcon().click();
 
         popUpWindow = new PopUpWindow();
@@ -122,11 +116,9 @@ public class AddBooksToProfileTest extends TestBase {
         popUpWindow.getOkButton().click();
 
         profilePage.getSearchBox().sendKeys("You Don't Know JS");
+        profilePage.getTable().shouldBe(Condition.exactText(" ")); // проверкa на то,что книга удалилась
 
-        profilePage.checkExistingBook(0); //как сделать проверку на то,что книга удалилась
+        profilePage.getDeleteAllBooksButton().click(); //удаляем все книги
 
     }
-
 }
-// TODO 1-как сделать проверку на то, что книги отображаются в таблице 2-как сделать проверку на то,что книга удалилась
-// //a[normalize-space()="Designing Evolvable Web APIs with ASP.NET"]

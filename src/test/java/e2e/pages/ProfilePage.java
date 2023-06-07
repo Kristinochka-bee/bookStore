@@ -22,12 +22,18 @@ public class ProfilePage extends LeftMenu{
     private SelenideElement tableRows = $x("//div[@class=\"rt-tr -padRow -odd\"]");
     private SelenideElement searchBox = $x("//input[@id='searchBox']");
     private SelenideElement tableRow = $x("//div[@class='rt-tr -odd']");
+    private SelenideElement table = $x("//div[@class='rt-tbody']//div[1]//div[1]//div[2]");
     private ElementsCollection tableRowsss = $$x ("//*[@class=\"rt-tr-group\"]");
+
+    private SelenideElement youDontKnowJSBook = $x("//span[@id=\"see-book-You Don't Know JS\"]");
+    private SelenideElement speakingJavaScriptBook = $x("//span[@id=\"see-book-Speaking JavaScript\"]");
+    private SelenideElement eloquentJavaScriptSecondEditionBook = $x("//span[@id=\"see-book-Eloquent JavaScript, Second Edition\"]");
+
+
 
     public void checkExistingBook(Number expectedCountRow) {
         ElementsCollection actualCountRow = $$x ("//div[@class=\"rt-td\"]//span[@class=\"mr-2\"]");
         Assert.assertEquals(actualCountRow, expectedCountRow);
     }
-
 
 }

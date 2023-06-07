@@ -1,14 +1,16 @@
-package api.schema;
+package api.schema.account;
 
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonInclude;
 import lombok.*;
 
+@Data
+@Builder
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class LoginViewDto {
-    private String userName;
-    private String password;
+    public String userName;
+    public String password;
 }

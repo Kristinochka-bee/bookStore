@@ -1,4 +1,4 @@
-package api.schema;
+package api.schema.account;
 
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
@@ -11,9 +11,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
-public class TokenViewDto {
-    public String token;
-    public String expires;
-    public String status;
-    public String result;
+public class RegistrationDTO {
+    String userName;
+    String password;
+
 }

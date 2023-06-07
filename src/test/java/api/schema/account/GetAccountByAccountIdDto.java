@@ -1,4 +1,4 @@
-package api.schema;
+package api.schema.account;
 
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

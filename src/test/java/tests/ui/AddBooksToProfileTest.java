@@ -109,6 +109,7 @@ public class AddBooksToProfileTest extends TestBase {
         profilePage.checkExistingBook(1);
 
         //как сделать проверку на то,что книга удалилась
+
         //profilePage.getTableRow().selectOptionContainingText("You Don't Know JS" + "Kyle Simpson" + "O'Reilly Media" );
         // profilePage.getTableRows().shouldBe(Condition.exactText("Speaking JavaScript"));
         // profilePage.getTableRows().shouldBe(Condition.exactText("Eloquent JavaScript, Second Edition"));
@@ -124,9 +125,8 @@ public class AddBooksToProfileTest extends TestBase {
 
         profilePage.checkExistingBook(0); //как сделать проверку на то,что книга удалилась
 
-
-
-
     }
 
 }
+// TODO 1-как сделать проверку на то, что книги отображаются в таблице 2-как сделать проверку на то,что книга удалилась
+// //a[normalize-space()="Designing Evolvable Web APIs with ASP.NET"]

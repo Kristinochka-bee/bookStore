@@ -1,6 +1,7 @@
 package tests.ui;
 
-import api.RegistrationApi;
+import api.RegistrationAndLoginApi;
+import api.schema.account.RegistrationDTO;
 import com.codeborne.selenide.Condition;
 import e2e.pages.LoginPage;
 import e2e.pages.PopUpWindow;
@@ -11,7 +12,7 @@ import org.testng.annotations.Test;
 import tests.TestBase;
 
 public class RegistrationAndDeleteUserTest extends TestBase {
-    RegistrationApi registrationApi;
+    RegistrationAndLoginApi registrationApi;
     LoginPage loginPage;
     ProfilePage profilePage;
 
@@ -19,8 +20,10 @@ public class RegistrationAndDeleteUserTest extends TestBase {
 
     @Test
     public void registerNewUserViaApiLoginUIAndDeleteUITest(){
-        registrationApi = new RegistrationApi();
-        Response response = registrationApi.registrationNewUserApi(201);
+        registrationApi = new RegistrationAndLoginApi();
+        RegistrationDTO registrationDTO = registrationApi.randomDataForNewUser();
+
+        Response response = registrationApi.registrationNewUserApi(201, registrationDTO);
 
         String userName =  response.jsonPath().getString("username");
         String password = registrationApi.randomDataForNewUser().getPassword();

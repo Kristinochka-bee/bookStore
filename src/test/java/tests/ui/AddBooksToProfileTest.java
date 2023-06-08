@@ -73,11 +73,24 @@ public class AddBooksToProfileTest extends TestBase {
     @Test
     public void addAndDeleteSomeBooksInProfile(){
         homePage = new HomePage();
+        bookPage = new BookPage();
+
         homePage.getLogOutButton().shouldBe(Condition.visible);
 
         leftMenu = new LeftMenu();
         leftMenu.clickOnbookStoreMenuButton();
 
+        for (int i = 0; i < homePage.getBooksTitles().size(); i++) {
+            if (i == 4 || i == 3 || i == 6){
+                homePage.getBooksTitles().get(i).click();
+                bookPage.getAddToYourCollectionButton().click();
+                bookPage.clickAlertOkButton();
+                bookPage.getBackToBookStoreButton().click();
+            }
+
+        }
+
+        /*
         homePage.getSearchBoxField().shouldBe(Condition.visible);
         homePage.getBooksTitles().findBy(Condition.exactText("You Don't Know JS"))
                 .shouldHave(Condition.href("/books?book=9781491904244")).click();
@@ -99,6 +112,8 @@ public class AddBooksToProfileTest extends TestBase {
         bookPage.getBackToBookStoreButton().shouldBe(Condition.visible);
         bookPage.getAddToYourCollectionButton().click();
         bookPage.clickAlertOkButton();
+
+         */
 
 
         leftMenu.getProfileMenuButton().click();

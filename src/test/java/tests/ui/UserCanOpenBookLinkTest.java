@@ -39,7 +39,25 @@ public class UserCanOpenBookLinkTest extends TestBase {
         switchTo().window(0);//возврат на предыдущию страницу магазина с индексом 0
 
 
+    }
 
+    @Test
+    public void userCanFollowBookLinkTest1(){
+        homePage = new HomePage();
+        homePage.getLogOutButton().shouldBe(Condition.visible);
+        leftMenu = new LeftMenu();
+        leftMenu.clickOnbookStoreMenuButton();
+
+        homePage.getSearchBoxField().shouldBe(Condition.visible);
+        homePage.getBooksTitles().get(4).click();
+        bookPage = new BookPage();
+        bookPage.getBackToBookStoreButton().shouldBe(Condition.visible);
+        bookPage.getBookLink().shouldBe(Condition.visible);
+        bookPage.getBookLink().click();
+        switchTo().window(1);     //переход- переключиться на вкладку книги
+        webdriver().shouldHave(url(youDontKnowJsLink)); //проверка по URL, что переключились
+        Selenide.closeWindow(); //закроет вкладку
+        switchTo().window(0);//возврат на предыдущию страницу магазина с индексом 0
 
 
     }

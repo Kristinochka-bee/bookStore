@@ -47,7 +47,7 @@ public class ApiBase {
     public Response doPostRequest(String endPoint, Integer responseCode, Object body){
         Response resp = RestAssured.given()
                 .spec(spec)
-                .header("Access-Token", token)
+                .header("Authorization","Bearer" + token)
                 .body(body)
                 .when()
                 .log().all()
@@ -61,7 +61,7 @@ public class ApiBase {
     public Response doPostRequest1(Object body, String endPoint, Integer statusCode) {
         Response resp = given()
                 .spec(spec)
-                .header("Access-Token", token)
+                .header("Authorization","Bearer" + token)
                 .body(body)
                 .when()
                 .log().all()
@@ -75,7 +75,7 @@ public class ApiBase {
     public Response doDeleteRequest(String endPoint, Integer responseCode, int id){
         Response resp = RestAssured.given()
                 .spec(spec)
-                .header("Access-Token", token)
+                .header("Authorization","Bearer" + token)
                 .when()
                 .pathParam("id", id)
                 .log().all()
@@ -89,7 +89,7 @@ public class ApiBase {
     public Response doDeleteRequest1(String endPoint, Integer responseCode, String id){
         Response resp = RestAssured.given()
                 .spec(spec)
-                .header("Access-Token", token)
+                .header("Authorization","Bearer" + token)
                 .when()
                 .pathParam("id", id)
                 .log().all()
@@ -104,7 +104,7 @@ public class ApiBase {
     public Response doGetRequestWithParam(String endPoint, Integer responseCode, int id){
         Response resp = RestAssured.given()
                 .spec(spec)
-                .header("Access-Token", token)
+                .header("Authorization","Bearer" + token)
                 .when()
                 .pathParam("id", id)
                 .log().all()
@@ -119,7 +119,7 @@ public class ApiBase {
     public Response doGetRequest(String endPoint, Integer responseCode, int id){
         Response resp = RestAssured.given()
                 .spec(spec)
-                .header("Access-Token", token)
+                .header("Authorization","Bearer" + token)
                 .when()
                 .log().all()
                 .get(endPoint)
@@ -132,7 +132,7 @@ public class ApiBase {
     public Response doGetRequest1(String endPoint, Integer responseCode, String id){
         Response resp = RestAssured.given()
                 .spec(spec)
-                .header("Access-Token", token)
+                .header("Authorization","Bearer" + token)
                 .when()
                 .log().all()
                 .get(endPoint)
@@ -145,7 +145,7 @@ public class ApiBase {
     public Response doGetRequest2(EndPoint endPoint, Integer responseCode) {
         Response resp = RestAssured.given()
                 .spec(spec)
-                .header("Access-Token", token)
+                .header("Authorization","Bearer" + token)
                 .when()
                 .log().all()
                 .get(endPoint.getValue())
@@ -160,7 +160,7 @@ public class ApiBase {
     public Response doPutRequest(String endPoint, Integer responseCode, Object body){
         Response resp = RestAssured.given()
                 .spec(spec)
-                .header("Access-Token", token)
+                .header("Authorization","Bearer" + token)
                 .body(body)
                 .when()
                 .log().all()

@@ -19,7 +19,7 @@ public class GetAccountTest extends ApiBase{
         registrationApi = new RegistrationAndLoginApi();
         RegistrationDTO registrationDTO = registrationApi.randomDataForNewUser();
         Response response = registrationApi.registrationNewUserApi(201, registrationDTO);
-        id = response.jsonPath().getString("userID");
+        id = response.jsonPath().getString("df43d6f7-6235-48eb-8630-5cf293931ad2");
     }
 @Test
     public void getAccountByAccountIdTest(){
